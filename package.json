@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/CalebBabin/bouncing-ball#readme",
   "dependencies": {
-    "parcel": "^2.0.0-nightly.630"
+    "parcel": "^2.0.0-beta.1"
   }
 }
