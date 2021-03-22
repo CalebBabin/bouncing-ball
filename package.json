@@ -2,7 +2,7 @@
   "name": "bouncing-ball",
   "version": "1.0.0",
   "description": "A simple bouncing ball animation",
-  "main": "index.js",
+  "main": "dist/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel ./src/index.html",
