@@ -7,6 +7,8 @@ let ground = 0; // the lowest y position of the ball
 let middle = 0; // the horizontal middle of the canvas
 let ballWidth = 0; // the width of the ball
 let ballWidthMultiplier = 1; // the ball width multiplier (configurable by user?)
+let ballImpactStretch = 1.5; // how much the ball stretches on impact (configurable by user?)
+let ballImpactSquish = 0.5; // how much the ball stretches on impact (configurable by user?)
 
 function resize() {
     canvas.width = window.innerWidth;
@@ -14,7 +16,7 @@ function resize() {
 
     middle = canvas.width / 2;
 
-    peak = canvas.height / 3;
+    peak = canvas.height / 6;
     ground = canvas.height - peak;
 
     ballWidth = canvas.height / 6;
@@ -40,10 +42,16 @@ function draw() {
     if (life > maxLife) life = 0;
     let y = peak + ease() * (ground - peak);
 
+    ctx.save();
     ctx.beginPath();
-    ctx.arc(middle, y, ballWidth * ballWidthMultiplier / 2, 0, Math.PI * 2);
+    ctx.translate(middle, y);
+    if (y > ground *0.99) {
+        ctx.scale(ballImpactStretch, ballImpactSquish);
+    }
+    ctx.arc(0, 0, ballWidth * ballWidthMultiplier / 2, 0, Math.PI * 2);
     ctx.fillStyle = '#eeeeee';
     ctx.fill();
+    ctx.restore();
 
 }
 draw();
