@@ -7,17 +7,45 @@
     <title>Bouncing Ball</title>
     <script defer src="./main.js"></script>
     <style>
+        :root {
+            --base: #eeeeee;
+            --background: #222222;
+            font-size: 24px;
+        }
         html, body, body > canvas {
             margin: 0;
             height: 100%;
             width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         body {
-            background: #222;
+            font-size: 2rem;
+            line-height: 1;
+            background: var(--background);
+            color: var(--base);
+            font-family: sans-serif;
+        }
+        .easingFunction {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0.5rem;
+        }
+        .easingFunction > canvas {
+            display: block;
+            border: 1px solid var(--base);
+            width: 10rem;
+            height: 10rem;
         }
     </style>
 </head>
 <body>
+    <div class="easingFunction">
+        <span></span>
+        <canvas></canvas>
+    </div>
     
 </body>
 </html>
